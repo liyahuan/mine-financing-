@@ -7,6 +7,10 @@ export const App = defineComponent({
     const onClick = ()=>{
       refCount.value +=1
     }
-    return ()=>(<div><RouterView /></div>)
+    return ()=>(
+      <div class="page">
+        <RouterView />
+      </div>
+    )
   }
 })

@@ -1,0 +1,29 @@
+.wrapper{
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  > .card{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--welcome-card-bg);
+    border-radius: 8px;
+    padding:16px;
+    margin:16px 16px 0;
+    text-align: center;
+  }
+  > .actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 16px;
+    font-size: 24px;
+    padding: 16px 0;
+    color: var(--welcome-text);
+    > .fake{
+      visibility: hidden;
+    }
+  }
+}

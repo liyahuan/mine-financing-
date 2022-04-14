@@ -1,15 +1,15 @@
 import { defineComponent, vModelSelect } from "vue";
 import { RouterView } from "vue-router";
-import style from './welcome.module.scss';
+import s from './welcome.module.scss';
 import logo from '../assets/icons/mangosteen.svg';
 export const Welcome = defineComponent({
   setup:(props,context)=>{
-    return ()=>(<div class={style.wrapper}>
+    return ()=>(<div class={s.wrapper}>
       <header>
-        <img src={logo} width="120" alt="" />
+        <img src={logo} width="64" alt="" />
         <h1>山竹记账</h1>
       </header>
-      <main><RouterView></RouterView></main>
+      <main class={s.main}><RouterView></RouterView></main>
       </div>
     )
   }

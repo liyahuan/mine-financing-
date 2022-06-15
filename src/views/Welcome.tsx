@@ -1,11 +1,19 @@
 import { defineComponent, ref, Transition, VNode, watchEffect } from 'vue';
-import { RouteLocationNormalizedLoaded, RouterView } from 'vue-router';
+import { RouteLocationNormalizedLoaded, RouterView, useRoute, useRouter } from 'vue-router';
 import { useSwipe } from '../hooks/useSwipe';
+import { throttle } from '../shared/throttle';
 import s from './Welcome.module.scss'
 export const Welcome = defineComponent({
   setup: (props, context) => {
-    const main = ref<HTMLElement | null>(null)
-    const { direction, swiping } = useSwipe(main)
+    const main = ref<HTMLElement>()
+    const {direction, swiping} = useSwipe(main, {beforeStart:e => e.preventDefault()}) 
+    const route = useRoute()
+    const router = useRouter()
+    const replace = throttle(() =>{
+      const name = (route.name || 'Welcome1').toString()
+      router.replace(pushMap[name])
+      return 1
+    }, 500)
     watchEffect(() => {
       console.log(swiping.value, direction.value)
     })

@@ -1,5 +1,4 @@
 import { computed, onMounted, onUnmounted, ref, Ref } from "vue";
-
 type Point = {
   x: number;
   y: number;
@@ -27,7 +26,8 @@ export const useSwipe = (element: Ref<HTMLElement | undefined>, options?: Option
   const direction = computed(() => {
     if (!distance.value) { return '' }
     const { x, y } = distance.value
-    if (Math.abs(x) > Math.abs(y)) {
+    if (Math.abs(x) > Math.abs(y)
+    ) {
       return x > 0 ? 'right' : 'left'
     } else {
       return y > 0 ? 'down' : 'up'
